@@ -229,7 +229,7 @@ const Profile: NextPage = () => {
             </Typography>
           </div>
           {userData?.id === id ? (
-            <div>
+            <div className={styles.exitButton}>
               <Button onClick={onLogout} style={{ height: 42, minWidth: 45, width: 45 }} variant="contained">
                 <ExitToAppIcon />
               </Button>
