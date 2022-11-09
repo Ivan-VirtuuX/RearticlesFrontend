@@ -1,0 +1,130 @@
+.root {
+  position: fixed;
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #e7e2ff !important;
+  padding: 0 35px 0 10px;
+  height: 60px;
+  margin-bottom: 14px;
+  z-index: 10000;
+  padding-left: 30px;
+  border-radius: 0px !important;
+}
+
+.searchBlockPopup {
+  position: absolute !important;
+  top: 40px;
+  width: 310px;
+
+  @media(max-width: 700px) {
+    margin-top: 10px !important;
+    width: 360px !important;
+  }
+
+  @media(max-width: 450px) {
+    width: 300px !important;
+  }
+
+  @media(max-width: 425px) {
+    width: calc(100%) !important;
+  }
+}
+
+.logo {
+  margin-right: 25px;
+  margin-top: 10px;
+}
+
+.penButton {
+  min-width: 40px !important;
+  text-transform: inherit !important;
+  font-size: 16px !important;
+  letter-spacing: 0 !important;
+}
+
+.searchBlock {
+  position: relative;
+  margin-right: 15px;
+  width: 310px;
+
+  @media(max-width: 700px) {
+    width: calc(100% - 50%);
+  }
+
+  svg {
+    position: absolute;
+    top: 8px;
+    left: 10px;
+    opacity: 0.3;
+  }
+
+  input {
+    width: 100%;
+    height: 40px;
+    border: 0;
+    border-radius: 10px;
+    background-color: rgba(0, 0, 0, 0.05);
+    font-size: 16px;
+    padding-left: 40px;
+    transition: all 0.1s ease-in-out;
+    border: 1px solid transparent;
+
+    &:hover,
+    &:focus {
+      background-color: #fff;
+      border-color: darken(#e6e2ff, 15%);
+      box-shadow: 0 0 0 3px rgba(122, 64, 229, 0.12);
+    }
+  }
+}
+
+.loginButton {
+  display: flex;
+  align-items: center;
+  font-size: 16px;
+  cursor: pointer;
+  font-weight: 500;
+  margin-left: 15px;
+  transition: all 0.2s ease-in-out;
+  color: #707070;
+
+  svg {
+    margin-right: 10px;
+  }
+
+  &:hover {
+    color: #9580ff;
+  }
+}
+
+.userIcon {
+  display: flex;
+  align-items: center;
+  font-size: 16px;
+  cursor: pointer;
+  font-weight: 500;
+  margin-left: 15px;
+  transition: all 0.2s ease-in-out;
+  color: rgb(112, 112, 112);
+
+  svg {
+    margin-right: 10px;
+
+    @media(max-width: 425px) {
+      margin-right: 0px;
+    }
+  }
+
+  &:hover {
+    color: rgb(149, 128, 255);
+  }
+}
+
+.addButton {
+  @media(max-width: 565px) {
+    min-width: 10px !important;
+    padding: 10px 10px !important;
+  }
+}

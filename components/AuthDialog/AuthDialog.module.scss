@@ -1,0 +1,85 @@
+.content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    button {
+        position: relative;
+
+        svg {
+            position: absolute;
+            left: 10px;
+            width: 20px;
+            height: 20px;
+        }
+    }
+
+    @media (max-width: 665px) {
+        margin: 0 auto;
+
+        x input {
+            width: 100px;
+        }
+    }
+}
+
+.title {
+    font-size: 18px;
+    color: black !important;
+    margin-bottom: 15px !important;
+    font-weight: 500 !important;
+}
+
+.sketchGirl {
+    margin-right: 45px;
+    scale: 120%;
+    width: 250px;
+
+    @media(max-width: 665px) {
+        display: none;
+    }
+}
+
+.dialogContainer {
+    height: 413px;
+
+    @media(max-width: 665px) {
+        height: 350px;
+        display: flex;
+        justify-content: center;
+    }
+}
+
+.miniButtons {
+    display: flex;
+    justify-content: space-between;
+
+    button {
+        height: 40px !important;
+
+        &:nth-of-type(2) {
+            margin: 0 15px;
+        }
+
+        svg {
+            position: static;
+        }
+    }
+}
+
+.backTitle {
+    display: flex;
+    align-items: center;
+
+    svg {
+        margin-right: 10px;
+        position: relative;
+        cursor: pointer;
+        top: 2px;
+        transition: all 0.2s ease-in-out;
+
+        &:hover {
+            color: #4683d9;
+        }
+    }
+}

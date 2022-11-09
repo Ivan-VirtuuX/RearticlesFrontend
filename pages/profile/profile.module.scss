@@ -1,0 +1,170 @@
+.comment {
+  margin-bottom: 20px;
+  padding-bottom: 5px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.userInfo {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+
+  div {
+    width: 30px;
+    height: 30px;
+    border-radius: 30px;
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    margin-right: 10px;
+  }
+
+  b {
+    font-size: 16px;
+  }
+
+  span {
+    font-size: 12px;
+    opacity: 0.8;
+    margin-left: 10px;
+  }
+}
+
+.paper {
+  border-radius: 8px !important;
+  margin-bottom: 30px;
+}
+
+.postLink {
+  color: gray;
+  font-weight: 300;
+  font-size: 15px;
+}
+
+.avatarContainer {
+  position: relative;
+}
+
+.avatarBg {
+  background-color: rgba(0, 0, 0, 0.5);
+  position: absolute;
+  border-radius: 6px;
+  z-index: 10;
+  width: 120px;
+  height: 120px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  p {
+    cursor: pointer;
+    color: white;
+    font-size: 15px;
+    font-weight: 500;
+  }
+}
+
+.avatar {
+  img {
+    position: absolute;
+    height: 120px;
+    width: 120px;
+  }
+}
+
+.skeleton {
+  background-color: #fff;
+  border-radius: 8px;
+  overflow: hidden;
+  margin-bottom: 15px;
+  width: 100%;
+
+  &:not(:first-child) {
+    margin-top: 20px;
+  }
+
+  &Content {
+    padding: 20px;
+  }
+}
+
+.skeletonUser {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  &Details {
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+.skeletonPostActions {
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.skeletonContent {
+  display: flex;
+  justify-content: space-between;
+
+  div {
+    &:nth-child(1) {
+      @media (max-width: 580px) {
+        width: 200px;
+      }
+    }
+  }
+}
+
+.skeletonTabs {
+  display: flex;
+  align-items: center;
+  margin-top: 20px;
+  width: 435px;
+
+  span {
+    margin-right: 15px;
+    border-radius: 8px;
+    width: 100% !important;
+
+    @media (max-width: 610px) {
+      width: 100px !important;
+    }
+  }
+}
+
+.followsBlockSkeleton {
+  background-color: #fff;
+  border-radius: 8px;
+  overflow: hidden;
+  width: 300px;
+
+  &Content {
+    padding: 20px;
+  }
+
+  @media (max-width: 1040px) {
+    width: 100% !important;
+    margin-bottom: 20px;
+  }
+}
+
+.profileBlocks {
+  @media (max-width: 1040px) {
+    display: flex !important;
+    flex-direction: column-reverse !important;
+  }
+}
+
+.subsBlock {
+  @media (max-width: 1040px) {
+    width: 100% !important;
+  }
+}
+
+.posts {
+  @media (max-width: 1040px) {
+    width: 100%;
+    margin-right: 0px !important;
+  }
+}

@@ -1,0 +1,58 @@
+.title {
+  font-weight: 500 !important;
+  font-size: 22px !important;
+}
+
+.paper {
+  border-radius: 8px !important;
+  margin-bottom: 30px;
+}
+
+.postImg {
+  border-radius: 8px;
+
+  @media(max-width: 1300px) {
+    max-width: 100%;
+  }
+}
+
+.content {
+  display: flex !important;
+  flex-direction: column !important;
+}
+
+.skeleton {
+  background-color: #fff;
+  border-radius: 8px;
+  overflow: hidden;
+  margin-bottom: 15px;
+  width: 640px;
+  margin: 0 auto;
+
+  @media (max-width: 1090px) {
+    width: 100%;
+  }
+
+  &:not(:first-child) {
+    margin-top: 20px;
+  }
+
+  &Content {
+    padding: 20px;
+  }
+}
+
+.skeletonUser {
+  display: flex;
+
+  &Details {
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+.skeletonPostActions {
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
+}

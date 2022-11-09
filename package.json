@@ -1,0 +1,59 @@
+{
+  "name": "frontend",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "export": "next export",
+    "lint": "next lint"
+  },
+  "prettier": {
+    "printWidth": 120,
+    "singleQuote": true,
+    "trailingComma": "all",
+    "tabWidth": 2,
+    "useTabs": false,
+    "semi": true,
+    "bracketSpacing": true
+  },
+  "dependencies": {
+    "@editorjs/editorjs": "^2.22.2",
+    "@editorjs/image": "^2.6.2",
+    "@editorjs/simple-image": "^1.4.1",
+    "@hookform/resolvers": "^2.9.10",
+    "@material-ui/core": "^4.12.3",
+    "@material-ui/icons": "^4.11.2",
+    "@material-ui/lab": "^4.0.0-alpha.60",
+    "@reduxjs/toolkit": "^1.8.6",
+    "@types/axios": "^0.14.0",
+    "@types/node": "^18.11.9",
+    "@types/yup": "^0.32.0",
+    "axios": "^1.1.2",
+    "babel-preset-next": "^1.4.0",
+    "clsx": "^1.1.1",
+    "install": "^0.13.0",
+    "macro-css": "^1.0.5",
+    "mongoose": "^6.6.5",
+    "next": "11.1.0",
+    "next-redux-wrapper": "^8.0.0",
+    "nookies": "^2.5.2",
+    "npm": "^8.19.2",
+    "react": "17.0.2",
+    "react-content-loader": "^6.2.0",
+    "react-dom": "17.0.2",
+    "react-hook-form": "7.16.1",
+    "react-redux": "^8.0.4",
+    "sass": "^1.38.0",
+    "socket.io-client": "^4.5.3",
+    "yup": "^0.32.11"
+  },
+  "devDependencies": {
+    "@nestjs/cli": "^9.1.4",
+    "eslint": "7.32.0",
+    "eslint-config-next": "11.1.0",
+    "styled-components.macro": "^1.0.0",
+    "typescript": "^4.3.5"
+  }
+}

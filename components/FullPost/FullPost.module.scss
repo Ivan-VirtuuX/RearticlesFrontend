@@ -1,0 +1,123 @@
+.paper {
+  margin-bottom: 20px;
+  border-radius: 8px !important;
+  padding: 30px 30px;
+
+  p {
+    margin-bottom: 15px;
+    font-size: 18px;
+  }
+}
+
+.title {
+  font-weight: 500 !important;
+  margin-bottom: 20px !important;
+  font-size: 36px !important;
+}
+
+.text {
+  a {
+    color: #a2075c;
+    text-decoration: underline;
+  }
+}
+
+.userInfo {
+  display: flex;
+  align-items: center;
+
+  div {
+    width: 40px;
+    height: 40px;
+    border-radius: 8px;
+  }
+
+  b {
+    font-size: 18px;
+    margin-right: 10px;
+    margin-left: 10px;
+    font-weight: 500;
+  }
+
+  span {
+    font-size: 16px;
+    color: #2ea83a;
+    font-weight: 500;
+  }
+}
+
+.skeleton {
+  background-color: #fff;
+  border-radius: 8px;
+  overflow: hidden;
+  margin-bottom: 15px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 20px 20px;
+
+  &:not(:first-child) {
+    margin-top: 20px;
+  }
+
+  &Content {
+    padding: 20px;
+  }
+}
+
+.skeletonUser {
+  display: flex;
+
+  &Details {
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+.skeletonPostActions {
+  width: 100%;
+  margin-top: 20px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.skeletonCommentInput {
+  width: 100% !important;
+}
+
+.skeletonPostText {
+  span {
+    width: 100% !important;
+  }
+}
+
+.skeletonInfo {
+  width: 940px;
+  margin: 0 auto;
+
+  span {
+    border-radius: 8px;
+  }
+}
+
+.userActions {
+  @media (max-width: 425px) {
+    display: flex;
+    flex-direction: column;
+  }
+
+  div {
+    &:nth-child(2) {
+      @media (max-width: 425px) {
+        margin-top: 20px;
+      }
+    }
+  }
+}
+
+.skeletonImg {
+  width: 100% !important;
+
+  @media (max-width: 425px) {
+    height: 120px !important;
+  }
+}

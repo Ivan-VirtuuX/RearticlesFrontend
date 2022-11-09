@@ -1,0 +1,129 @@
+.root {
+  width: 320px;
+  margin-bottom: 2px;
+  position: sticky;
+  top: 90px;
+  margin-left: 40px;
+
+  h3 {
+    display: flex;
+    align-items: center;
+    margin-top: 0;
+    font-size: 18px;
+    margin-bottom: 30px;
+    cursor: pointer;
+
+    svg {
+      width: 22px;
+      height: 22px;
+      margin-left: 8px;
+    }
+  }
+
+  @media(max-width: 1300px) {
+    width: calc(100% - 45px);
+  }
+
+  @media(max-width: 700px) {
+    margin-left: 0px;
+  }
+}
+
+.rotated {
+  width: 100px;
+  transform: rotate(-90deg) translateX(-50px);
+  transform-origin: right;
+
+  svg {
+    transform: rotate(270deg);
+  }
+}
+
+.commentItem {
+  margin-bottom: 25px;
+
+  &:not(:last-of-type) {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    padding-bottom: 20px;
+  }
+}
+
+.userInfo {
+  display: flex;
+  align-items: center;
+}
+
+.text {
+  font-size: 16px;
+  margin-top: 8px;
+  margin-bottom: 5px;
+}
+
+.postTitle {
+  font-size: 15px;
+  font-weight: 500;
+}
+
+.avatar {
+  margin-right: 5px;
+
+
+  img {
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+  }
+}
+
+.skeleton {
+  background-color: #fff;
+  border-radius: 8px;
+  overflow: hidden;
+  margin-bottom: 15px;
+
+  @media (max-width: 1090px) {
+    width: 150px !important;
+
+    div {
+      div {
+        &:nth-child(2) {
+          span {
+            width: 100px !important;
+          }
+        }
+      }
+    }
+  }
+
+  &:not(:first-child) {
+    margin-top: 20px;
+  }
+
+  &Content {
+    padding: 20px;
+  }
+
+  @media (max-width: 520px) {
+    width: 422px
+  }
+
+  @media (max-width: 420px) {
+    width: 322px
+  }
+}
+
+.skeletonUser {
+  display: flex;
+  align-items: center;
+
+  &Details {
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+.skeletonPostActions {
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
+}
