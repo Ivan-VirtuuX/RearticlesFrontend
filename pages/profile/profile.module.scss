@@ -114,6 +114,10 @@
   display: flex;
   justify-content: space-between;
 
+  @media (max-width: 427px) {
+    flex-direction: column !important;
+  }
+
   div {
     &:nth-child(1) {
       @media (max-width: 580px) {
