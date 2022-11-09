@@ -63,7 +63,7 @@ export const Header: FC = () => {
             <input
               onChange={handleChangeInput}
               value={searchValue}
-              placeholder="Поиск..."
+              placeholder="Поиск"
               onClick={() => setIsResultVisible(true)}
             />
             {posts?.length > 0 && searchValue && (

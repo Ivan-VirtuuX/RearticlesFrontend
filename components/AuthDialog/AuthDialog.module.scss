@@ -42,6 +42,7 @@
 
 .dialogContainer {
     height: 413px;
+    overflow: hidden;
 
     @media(max-width: 665px) {
         height: 350px;

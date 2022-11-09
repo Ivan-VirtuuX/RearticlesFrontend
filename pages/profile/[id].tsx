@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { Paper, Avatar, Typography, Button, Tabs, Tab } from '@material-ui/core';
+import { Paper, Avatar, Typography, Button, Tabs, Tab, useMediaQuery } from '@material-ui/core';
 import UserAddIcon from '@material-ui/icons/PersonAddOutlined';
 import { Post } from '../../components/Post';
 import { MainLayout } from '../../layouts/MainLayout';
@@ -53,6 +53,8 @@ const Profile: NextPage = () => {
   };
 
   const userComments = postComments.filter((comment) => comment?.author?.userId === id);
+
+  const matches427 = useMediaQuery('(max-width:427px)');
 
   const opacityUp = [
     {
@@ -198,7 +200,7 @@ const Profile: NextPage = () => {
     <MainLayout contentFullWidth hideComments>
       {isLoading && <ProfileSkeleton />}
       <Paper className="pl-20 pr-20 pt-20 mb-30" elevation={0} style={{ display: isLoading ? 'none' : '' }}>
-        <div className="d-flex justify-between">
+        <div className={`d-flex justify-between ${matches427 && 'flex-column'}`}>
           <div>
             <div className="avatarContainer" onMouseEnter={onMouseEnter} onMouseLeave={onMouseLeave}>
               {userId === id && (
@@ -233,15 +235,21 @@ const Profile: NextPage = () => {
               </Button>
             </div>
           ) : (
-            <div>
+            <div className={styles.unFollow}>
               {isFollow ? (
                 <Button variant="contained" onClick={onUnfollow}>
                   <b>Отписаться</b>
                 </Button>
               ) : (
                 <Button variant="contained" onClick={onFollow}>
-                  <UserAddIcon />
-                  <b className="ml-10">Подписаться</b>
+                  {matches427 ? (
+                    <UserAddIcon />
+                  ) : (
+                    <>
+                      <UserAddIcon />
+                      <b className="ml-10">Подписаться</b>
+                    </>
+                  )}
                 </Button>
               )}
             </div>

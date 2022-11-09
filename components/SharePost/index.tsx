@@ -1,7 +1,6 @@
-import React, { FC, useEffect, useRef, useState } from 'react';
+import React, { FC, useRef, useState } from 'react';
 import { Dialog, DialogContent, DialogContentText, Typography } from '@material-ui/core';
 import styles from './SharePost.module.scss';
-import ArrowBackIcon from '@material-ui/icons/ArrowBack';
 
 interface SharePostProps {
   onClose: () => void;

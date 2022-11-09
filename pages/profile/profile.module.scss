@@ -70,6 +70,13 @@
   }
 }
 
+.unFollow {
+  @media (max-width: 427px) {
+    margin-top: 10px;
+    margin-bottom: 20px;
+  }
+}
+
 .skeleton {
   background-color: #fff;
   border-radius: 8px;

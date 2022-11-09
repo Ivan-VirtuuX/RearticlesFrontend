@@ -103,7 +103,7 @@ export const PostActions: React.FC<PostActionsProps> = ({ postId }) => {
         </IconButton>
       </li>
       <SharePost
-        postUrl={`https://rearticlesbackend-production.up.railway.app/news/${postId}`}
+        postUrl={`https://rearticles.vercel.app/news/${postId}`}
         onClose={closeShareDialog}
         visible={isShareVisible}
       />

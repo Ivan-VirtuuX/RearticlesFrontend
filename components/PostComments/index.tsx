@@ -28,7 +28,7 @@ export const PostComments: FC<PostCommentsProps> = ({ postId }) => {
   };
 
   return (
-    <Paper elevation={0} className="mt40 p-30" style={{ display: isLoading ? 'none' : '' }}>
+    <Paper elevation={0} className="mt40 p-30" style={{ display: isLoading ? 'none' : comments.length ? '' : 'none' }}>
       <div className="container">
         {comments.length !== 0 && (
           <Typography variant="h6" className="mb-20">

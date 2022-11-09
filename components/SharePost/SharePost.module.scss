@@ -20,6 +20,10 @@
     color: black !important;
     margin-bottom: 15px !important;
     font-weight: 500 !important;
+
+    @media (max-width: 374px) {
+        font-size: 15px;
+    }
 }
 
 .sketchGirl {

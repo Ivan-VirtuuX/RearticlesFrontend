@@ -6,7 +6,6 @@ import {
   TrendingUpOutlined as TrendingIcon,
   FormatListBulletedOutlined as ListIcon,
 } from '@material-ui/icons';
-
 import styles from './LeftMenu.module.scss';
 import { useRouter } from 'next/router';
 import { useAppSelector } from '../../redux/hooks';
