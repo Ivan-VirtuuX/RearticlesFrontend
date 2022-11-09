@@ -235,24 +235,26 @@ const Profile: NextPage = () => {
               </Button>
             </div>
           ) : (
-            <div className={styles.unFollow}>
-              {isFollow ? (
-                <Button variant="contained" onClick={onUnfollow}>
-                  <b>Отписаться</b>
-                </Button>
-              ) : (
-                <Button variant="contained" onClick={onFollow}>
-                  {matches427 ? (
-                    <UserAddIcon />
-                  ) : (
-                    <>
+            userId && (
+              <div className={styles.unFollow}>
+                {isFollow ? (
+                  <Button variant="contained" onClick={onUnfollow}>
+                    <b>Отписаться</b>
+                  </Button>
+                ) : (
+                  <Button variant="contained" onClick={onFollow}>
+                    {matches427 ? (
                       <UserAddIcon />
-                      <b className="ml-10">Подписаться</b>
-                    </>
-                  )}
-                </Button>
-              )}
-            </div>
+                    ) : (
+                      <>
+                        <UserAddIcon />
+                        <b className="ml-10">Подписаться</b>
+                      </>
+                    )}
+                  </Button>
+                )}
+              </div>
+            )
           )}
         </div>
         <Typography>На проекте с {user?.createdAt.slice(0, -14)}</Typography>
