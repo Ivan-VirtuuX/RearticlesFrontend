@@ -51,6 +51,11 @@
 .userInfo {
   display: flex;
   align-items: center;
+
+  div {
+    width: 30px !important;
+    height: 30px !important;
+  }
 }
 
 .text {
@@ -67,11 +72,10 @@
 .avatar {
   margin-right: 5px;
 
-
   img {
     border-radius: 50%;
-    width: 30px;
-    height: 30px;
+    width: 30px !important;
+    height: 30px !important;
   }
 }
 
@@ -80,6 +84,17 @@
   border-radius: 8px;
   overflow: hidden;
   margin-bottom: 15px;
+
+
+  div {
+    div {
+      &:nth-child(2) {
+        span {
+          width: 100% !important;
+        }
+      }
+    }
+  }
 
   @media (max-width: 1090px) {
     width: 150px !important;

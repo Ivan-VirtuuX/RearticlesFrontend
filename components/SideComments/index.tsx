@@ -5,9 +5,11 @@ import { CommentItem } from './CommentItem';
 import clsx from 'clsx';
 import { useComments } from '../../hooks/useComments';
 import { useMediaQuery } from '@material-ui/core';
+import { SideCommentsSkeleton } from './SideCommentsSkeleton';
 
-export const SideComments = () => {
+export const SideComments = ({ isLoading }) => {
   const { comments } = useComments();
+
   const [visible, setVisible] = useState(true);
 
   const toggleVisible = () => {
@@ -25,7 +27,10 @@ export const SideComments = () => {
       ) : (
         <h3>Последние комментарии</h3>
       )}
-      {visible && comments && comments?.slice(0, 5)?.map((obj) => <CommentItem key={obj.commentId} {...obj} />)}
+      {isLoading && [...Array(5)].map(() => <SideCommentsSkeleton />)}
+      {visible &&
+        comments &&
+        comments?.slice(0, 5)?.map((obj) => <CommentItem key={obj.commentId} {...obj} isLoading={isLoading} />)}
     </div>
   );
 };

@@ -2,6 +2,7 @@ import React from 'react';
 import clsx from 'clsx';
 import { LeftMenu } from '../components/LeftMenu';
 import { SideComments } from '../components/SideComments';
+import { useLoading } from '../hooks/useLoading';
 
 interface MainLayoutProps {
   hideComments?: boolean;
@@ -17,6 +18,8 @@ export const MainLayout: React.FC<MainLayoutProps> = ({
   hideMenu,
   className,
 }) => {
+  const { isLoading } = useLoading(3000);
+
   return (
     <div className={clsx('wrapper', className)}>
       {!hideMenu && (
@@ -27,7 +30,7 @@ export const MainLayout: React.FC<MainLayoutProps> = ({
       <div className={clsx('content', { 'content--full': contentFullWidth })}>{children}</div>
       {!hideComments && (
         <div className="rightSide">
-          <SideComments />
+          <SideComments isLoading={isLoading} />
         </div>
       )}
     </div>
