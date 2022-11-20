@@ -21,6 +21,8 @@ interface FullPostProps {
 export const FullPost: FC<FullPostProps> = ({ title, blocks, authorId }) => {
   const [author, setAuthor] = useState<ResponseUser>();
   const [isFollow, setIsFollow] = useState(false);
+  const [isFollowDisabled, setIsFollowDisabled] = useState(false);
+  const [isUnfollowDisabled, setIsUnfollowDisabled] = useState(false);
 
   const userData = useAppSelector(selectUserData);
   const userId = userData?.id || userData?._id;
@@ -44,18 +46,24 @@ export const FullPost: FC<FullPostProps> = ({ title, blocks, authorId }) => {
         }
       } catch (err) {
         console.warn(err);
+      } finally {
+        setIsFollowDisabled(false);
       }
     })();
   }, [id]);
 
   const onFollow = async () => {
+    setIsFollowDisabled(true);
     await Api().user.addFollower(userId, authorId);
     setIsFollow(true);
   };
 
   const onUnfollow = async () => {
+    setIsUnfollowDisabled(true);
     await Api().user.unfollow(userId, authorId);
     setIsFollow(false);
+    setIsUnfollowDisabled(false);
+    setIsFollowDisabled(false);
   };
 
   return (
@@ -68,12 +76,12 @@ export const FullPost: FC<FullPostProps> = ({ title, blocks, authorId }) => {
           </Typography>
           <div className={styles.text}>
             {blocks.map((obj) => (
-              <>
-                <Typography key={obj?.id} dangerouslySetInnerHTML={{ __html: obj.data.text }} />
+              <React.Fragment key={obj?.id}>
+                <Typography dangerouslySetInnerHTML={{ __html: obj.data.text }} />
                 {obj.data.file?.url && (
                   <img src={obj.data.file.url} alt="post image" width={'100%'} style={{ borderRadius: 8 }} />
                 )}
-              </>
+              </React.Fragment>
             ))}
             <div className={styles.postActions}>
               <PostActions postId={id} />
@@ -86,11 +94,11 @@ export const FullPost: FC<FullPostProps> = ({ title, blocks, authorId }) => {
               {(userData?._id || userData?.id) && (userData?._id || userData?.id) !== authorId && (
                 <div>
                   {isFollow ? (
-                    <Button variant="contained" onClick={onUnfollow}>
+                    <Button disabled={isUnfollowDisabled} variant="contained" onClick={onUnfollow}>
                       <b>Отписаться</b>
                     </Button>
                   ) : (
-                    <Button variant="contained" onClick={onFollow}>
+                    <Button disabled={isFollowDisabled} variant="contained" onClick={onFollow}>
                       <UserAddIcon />
                       <b className="ml-10">Подписаться</b>
                     </Button>

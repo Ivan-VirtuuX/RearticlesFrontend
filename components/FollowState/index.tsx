@@ -13,29 +13,49 @@ interface FollowStateProps {
 
 export const FollowState: FC<FollowStateProps> = ({ userId, authorId, followers }) => {
   const [followed, setFollowed] = useState(false);
+  const [isFollowDisabled, setIsFollowDisabled] = useState(false);
+  const [isUnfollowDisabled, setIsUnfollowDisabled] = useState(false);
 
   const onUnfollow = async () => {
+    setIsUnfollowDisabled(true);
     await Api().user.unfollow(authorId, userId);
     setFollowed(false);
+    setIsUnfollowDisabled(false);
+    setIsFollowDisabled(false);
   };
 
   const onFollow = async () => {
+    setIsFollowDisabled(true);
     await Api().user.addFollower(authorId, userId);
     setFollowed(true);
   };
 
   useEffect(() => {
-    if (followers.some((follower) => follower.userId === authorId)) {
-      setFollowed(true);
+    try {
+      if (followers.some((follower) => follower.userId === authorId)) {
+        setFollowed(true);
+      }
+    } catch (err) {
+      console.warn(err);
     }
   }, []);
 
   return followed ? (
-    <Button onClick={onUnfollow} variant="contained" style={{ minWidth: 30, width: 35, height: 30 }}>
+    <Button
+      disabled={isUnfollowDisabled}
+      onClick={onUnfollow}
+      variant="contained"
+      style={{ minWidth: 30, width: 35, height: 30 }}
+    >
       <CheckIcon style={{ fontSize: 20, color: '#2ea83a' }} />
     </Button>
   ) : (
-    <Button onClick={onFollow} variant="contained" style={{ minWidth: 30, width: 35, height: 30 }}>
+    <Button
+      disabled={isFollowDisabled}
+      onClick={onFollow}
+      variant="contained"
+      style={{ minWidth: 30, width: 35, height: 30 }}
+    >
       <AddIcon />
     </Button>
   );

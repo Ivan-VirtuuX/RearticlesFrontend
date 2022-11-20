@@ -1,4 +1,4 @@
-import React, { FC, useEffect, useState } from 'react';
+import React, { FC } from 'react';
 import Link from 'next/link';
 import { Paper, Typography } from '@material-ui/core';
 import styles from './Post.module.scss';

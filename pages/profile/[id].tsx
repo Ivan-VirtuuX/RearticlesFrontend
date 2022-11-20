@@ -29,6 +29,8 @@ const Profile: NextPage = () => {
   const [isSave, setIsSave] = useState(false);
   const [isFollow, setIsFollow] = useState(false);
   const [postComments, setPostComments] = useState([]);
+  const [isFollowDisabled, setIsFollowDisabled] = useState(false);
+  const [isUnfollowDisabled, setIsUnfollowDisabled] = useState(false);
 
   const { isLoading } = useLoading();
 
@@ -134,6 +136,8 @@ const Profile: NextPage = () => {
         }
       } catch (err) {
         console.warn(err);
+      } finally {
+        setIsFollowDisabled(false);
       }
     })();
   }, []);
@@ -174,13 +178,17 @@ const Profile: NextPage = () => {
   };
 
   const onFollow = async () => {
+    setIsFollowDisabled(true);
     await Api().user.addFollower(userId, id);
     setIsFollow(true);
   };
 
   const onUnfollow = async () => {
+    setIsUnfollowDisabled(true);
     await Api().user.unfollow(userId, id);
     setIsFollow(false);
+    setIsUnfollowDisabled(false);
+    setIsFollowDisabled(false);
   };
 
   const onMouseEnter = () => {
@@ -238,11 +246,11 @@ const Profile: NextPage = () => {
             userId && (
               <div className={styles.unFollow}>
                 {isFollow ? (
-                  <Button variant="contained" onClick={onUnfollow}>
+                  <Button disabled={isUnfollowDisabled} variant="contained" onClick={onUnfollow}>
                     <b>Отписаться</b>
                   </Button>
                 ) : (
-                  <Button variant="contained" onClick={onFollow}>
+                  <Button disabled={isFollowDisabled} variant="contained" onClick={onFollow}>
                     {matches427 ? (
                       <UserAddIcon />
                     ) : (

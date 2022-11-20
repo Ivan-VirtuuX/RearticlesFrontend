@@ -86,7 +86,7 @@ export const Header: FC = () => {
           </div>
         )}
         {pathname !== '/write' &&
-          (userData?.id || userData?.id) &&
+          userData &&
           (!matches564 ? (
             <Link href="/write">
               <a>

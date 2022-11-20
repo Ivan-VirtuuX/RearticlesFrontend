@@ -43,8 +43,8 @@ const Follows: NextPage = () => {
               </TableRow>
             </TableHead>
             <TableBody className={styles.user}>
-              {followers?.map((obj) => (
-                <TableRow key={obj.id}>
+              {followers?.map((obj, index) => (
+                <TableRow key={index}>
                   <TableCell component="th" scope="row">
                     <Link href={`/profile/${obj.userId}`}>
                       <a>{obj.fullName}</a>

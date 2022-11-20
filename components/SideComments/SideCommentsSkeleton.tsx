@@ -2,9 +2,9 @@ import React from 'react';
 import styles from './SideComments.module.scss';
 import { Skeleton } from '@material-ui/lab';
 
-export const SideCommentsSkeleton = () => {
+export const SideCommentsSkeleton = ({ visible }) => {
   return (
-    <div className={styles.skeleton}>
+    <div className={styles.skeleton} style={{ display: visible ? 'block' : 'none' }}>
       <div className={styles.skeletonContent}>
         <div className={styles.skeletonUser}>
           <Skeleton variant="circle" width={30} height={30} />

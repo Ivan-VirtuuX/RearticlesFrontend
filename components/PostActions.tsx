@@ -46,7 +46,9 @@ export const PostActions: React.FC<PostActionsProps> = ({ postId }) => {
     try {
       setIsFavorite(true);
       await Api().user.addFavorite(postId, userData?.id || userData?._id);
+      console.log(userData?.id, userData?._id);
     } catch (err) {
+      console.log(userData?.id, userData?._id);
       console.warn(err);
     }
   };

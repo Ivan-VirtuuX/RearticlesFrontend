@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import ArrowRightIcon from '@material-ui/icons/NavigateNextOutlined';
 import styles from './SideComments.module.scss';
 import { CommentItem } from './CommentItem';
@@ -16,18 +16,22 @@ export const SideComments = ({ isLoading }) => {
     setVisible(!visible);
   };
 
-  const matches700 = useMediaQuery('(max-width:700px)');
+  const matches750 = useMediaQuery('(max-width:750px)');
+
+  useEffect(() => {
+    matches750 ? setVisible(true) : setVisible(false);
+  }, [matches750]);
 
   return (
     <div className={clsx(styles.root, !visible && styles.rotated)}>
-      {!matches700 ? (
+      {!matches750 ? (
         <h3 onClick={toggleVisible}>
           Последние комментарии <ArrowRightIcon />
         </h3>
       ) : (
         <h3>Последние комментарии</h3>
       )}
-      {isLoading && [...Array(5)].map(() => <SideCommentsSkeleton />)}
+      {isLoading && [...Array(5)].map((_, index) => <SideCommentsSkeleton visible={visible} key={index} />)}
       {visible &&
         comments &&
         comments?.slice(0, 5)?.map((obj) => <CommentItem key={obj.commentId} {...obj} isLoading={isLoading} />)}

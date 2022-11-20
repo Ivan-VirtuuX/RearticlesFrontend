@@ -48,7 +48,7 @@ export const Comment: React.FC<CommentPostProps> = ({
   return (
     <div className={styles.comment}>
       <div className={styles.userInfo}>
-        <Avatar src={author?.avatarUrl} style={{ width: 40, height: 40 }} />
+        <Avatar src={author?.avatarUrl} style={{ width: 38, height: 38 }} />
         <Link href={`/profile/${author.userId}`}>
           <a>
             <b>{author?.fullName}</b>

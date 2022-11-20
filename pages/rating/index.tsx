@@ -36,22 +36,25 @@ const Rating: NextPage<RatingPageProps> = ({ users }) => {
           <TableBody className={styles.user}>
             {users
               .sort((a, b) => b?.followers?.length - a?.followers?.length)
-              .map((user) => (
-                <TableRow key={user.userId}>
-                  <TableCell component="th" scope="row">
-                    {console.log(user)}
-                    <Link href={`/profile/${user.userId}`}>
-                      <a>{user.userId === authorId ? `${user.fullName} (вы)` : user.fullName}</a>
-                    </Link>
-                  </TableCell>
-                  <TableCell align="right">{user.followers.length * 10}</TableCell>
-                  {(userData?.id || userData?._id) && (
-                    <TableCell align="right">
-                      {user.userId !== authorId && <FollowState {...user} authorId={authorId} />}
-                    </TableCell>
-                  )}
-                </TableRow>
-              ))}
+              .map((user) => {
+                return (
+                  user?.followers.length > 0 && (
+                    <TableRow key={user.userId}>
+                      <TableCell component="th" scope="row">
+                        <Link href={`/profile/${user.userId}`}>
+                          <a>{user.userId === authorId ? `${user.fullName} (вы)` : user.fullName}</a>
+                        </Link>
+                      </TableCell>
+                      <TableCell align="right">{user.followers.length * 10}</TableCell>
+                      {(userData?.id || userData?._id) && (
+                        <TableCell align="right">
+                          {user.userId !== authorId && <FollowState {...user} authorId={authorId} />}
+                        </TableCell>
+                      )}
+                    </TableRow>
+                  )
+                );
+              })}
           </TableBody>
         </Table>
       </Paper>
