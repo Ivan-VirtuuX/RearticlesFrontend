@@ -38,18 +38,6 @@
   }
 }
 
-.rotated {
-  width: 50px;
-  transform: rotate(-90deg) translateX(-50px);
-  transform-origin: right;
-  margin-right: 30px;
-  margin-top: 20px;
-
-  svg {
-    transform: rotate(270deg);
-  }
-}
-
 .commentItem {
   margin-bottom: 25px;
 
