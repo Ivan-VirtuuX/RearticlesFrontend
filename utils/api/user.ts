@@ -1,5 +1,5 @@
 import { AxiosInstance } from 'axios';
-import { CreateUserDto, LoginDto, PostItem, ResponseUser } from './types';
+import { CreateUserDto, LoginDto, ResponseUser } from './types';
 
 export const UserApi = (instance: AxiosInstance) => ({
   async updateAvatar(userId: string | string[], avatarUrl: string) {
@@ -10,36 +10,6 @@ export const UserApi = (instance: AxiosInstance) => ({
 
   async getAll() {
     const { data } = await instance.get<ResponseUser[]>('/users');
-
-    return data;
-  },
-
-  async getFavorites(userId: string | string[]) {
-    const { data } = await instance.get<PostItem[]>(`/users/${userId}/favorites`);
-
-    return data;
-  },
-
-  async addFavorite(postId: string, userId: string | string[]) {
-    const { data } = await instance.post(`/users/${userId}/favorites`, { postId: postId });
-
-    return data;
-  },
-
-  async removeFavorite(postId: string, userId: string | string[]) {
-    const { data } = await instance.delete(`/users/${userId}/favorites`, { data: { postId: postId } });
-
-    return data;
-  },
-
-  async addFollower(followerId: string, userId: string | string[]) {
-    const { data } = await instance.post(`/users/${userId}/followers`, { followerId: followerId });
-
-    return data;
-  },
-
-  async unfollow(followerId: string, userId: string | string[]) {
-    const { data } = await instance.delete(`/users/${userId}/followers`, { data: { followerId: followerId } });
 
     return data;
   },
